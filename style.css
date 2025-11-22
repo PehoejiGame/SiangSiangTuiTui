@@ -272,7 +272,7 @@ body {
     align-items: center;
     flex: 1;
     min-height: 0;
-    padding: 0.5rem;
+    padding: 1rem;
     overflow: hidden;
 }
 
@@ -281,28 +281,33 @@ body {
     display: grid;
     gap: 0.5rem;
     margin: 0 auto;
+    padding: 1rem;
 
     /* Use CSS variables set by JS */
     grid-template-columns: repeat(var(--grid-cols, 4), 1fr);
     grid-template-rows: repeat(var(--grid-rows, 4), 1fr);
 
-    /* Fit to available space */
-    width: 100%;
-    height: 100%;
-    max-width: min(100%, calc(100vh - 200px));
-    max-height: min(100%, calc(100vh - 200px));
+    /* Calculate size to fit screen while maintaining card aspect ratio */
+    --card-gap: 0.5rem;
+    --total-gap-x: calc(var(--card-gap) * (var(--grid-cols) - 1) + 2rem);
+    --total-gap-y: calc(var(--card-gap) * (var(--grid-rows) - 1) + 2rem);
+
+    /* Max width based on viewport width */
+    --max-width-by-vw: calc(100vw - 4rem);
+    /* Max width based on viewport height (accounting for 3:4 card ratio) */
+    --max-width-by-vh: calc((100vh - 280px - var(--total-gap-y)) * 3 / 4 * var(--grid-cols) / var(--grid-rows) + var(--total-gap-x));
+
+    width: min(var(--max-width-by-vw), var(--max-width-by-vh));
+    height: auto;
 }
 
 /* Remove old specific grid selectors */
 
 /* Memory Cards */
-/* Memory Cards */
 .card {
     position: relative;
     width: 100%;
-    height: 100%;
-    min-height: 0;
-    min-width: 0;
+    aspect-ratio: 3 / 4;
     cursor: pointer;
     perspective: 1000px;
     z-index: 1;
@@ -529,7 +534,7 @@ body {
 }
 
 .card-inner {
-    position: relative;
+    position: absolute;
     width: 100%;
     height: 100%;
     transition: transform 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
@@ -566,6 +571,7 @@ body {
     justify-content: center;
     font-size: 2.5rem;
     font-weight: 700;
+    padding: 1rem;
 }
 
 .card-back {
