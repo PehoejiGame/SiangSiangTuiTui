@@ -102,7 +102,7 @@ body {
     width: 100%;
     height: 100vh;
     margin: 0 auto;
-    padding: 0.5rem;
+    padding: 0.2rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -114,7 +114,9 @@ body {
     display: flex;
     flex-direction: column;
     align-items: stretch;
+    align-self: center;
     width: 100%;
+    max-width: 768px;
     padding: 0.75rem 1rem;
     background: rgba(10, 10, 20, 0.8);
     border-bottom: 2px solid rgba(252, 227, 0, 0.5);
@@ -123,7 +125,7 @@ body {
     flex-shrink: 0;
     z-index: 100;
     backdrop-filter: blur(5px);
-    gap: 0.75rem;
+    gap: 0.2rem;
 }
 
 .header-bottom-row {
@@ -140,10 +142,11 @@ body {
     justify-content: center;
     text-align: center;
     width: 100%;
+    margin: 1rem auto;
 }
 
 .neon-title {
-    font-size: 1.8rem;
+    font-size: 3rem;
     font-weight: 900;
     margin: 0;
     display: flex;
@@ -165,14 +168,14 @@ body {
 .controls .cyber-btn {
     flex-shrink: 0;
     padding: 0.6rem 1rem;
-    font-size: 0.8rem;
+    font-size: 1.4rem;
 }
 
 .controls .cyber-select {
     flex: 1;
     min-width: 0;
     padding: 0.6rem 1rem;
-    font-size: 0.8rem;
+    font-size: 1.4rem;
 }
 
 .stats-panel {
@@ -222,7 +225,7 @@ body {
 }
 
 .subtitle {
-    font-size: 0.85rem;
+    font-size: 1.2rem;
     font-weight: 700;
     letter-spacing: 0.05rem;
     color: var(--neon-magenta);
@@ -233,12 +236,13 @@ body {
     flex-direction: column;
     gap: 0.5rem;
     text-align: left;
+    padding-left: 1rem;
 }
 
 /* Stats Panel */
 .stats-panel {
     display: flex;
-    gap: 1.5rem;
+    gap: 0.75rem;
 }
 
 .stat-item {
@@ -282,7 +286,7 @@ body {
 }
 
 .stat-label {
-    font-size: 0.6rem;
+    font-size: 0.8rem;
     font-weight: 700;
     letter-spacing: 0.05rem;
     color: var(--cp-magenta);
@@ -292,7 +296,7 @@ body {
 }
 
 .stat-value {
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: 900;
     color: var(--cp-magenta);
     text-shadow:
@@ -308,12 +312,11 @@ body {
     align-items: flex-start;
     flex: 1;
     min-height: 0;
-    padding: 1rem;
-    padding-top: 2rem;
+    padding: 0.5rem;
     overflow: hidden;
     position: relative;
     width: 100%;
-    max-width: 1200px;
+    max-width: 768px;
     margin: 0 auto;
 }
 
@@ -322,7 +325,7 @@ body {
     display: grid;
     gap: 0.5rem;
     margin: 0 auto;
-    padding: 1rem;
+    padding: 0.5rem;
 
     /* Use CSS variables set by JS */
     grid-template-columns: repeat(var(--grid-cols, 4), 1fr);
@@ -336,7 +339,7 @@ body {
     /* Max width based on viewport width */
     --max-width-by-vw: calc(100vw - 4rem);
     /* Max width based on viewport height (accounting for 3:4 card ratio) */
-    --max-width-by-vh: calc((100vh - 280px - var(--total-gap-y)) * 3 / 4 * var(--grid-cols) / var(--grid-rows) + var(--total-gap-x));
+    --max-width-by-vh: calc((60vh - var(--total-gap-y)) * 3 / 4 * var(--grid-cols) / var(--grid-rows) + var(--total-gap-x));
 
     width: min(var(--max-width-by-vw), var(--max-width-by-vh));
     height: auto;
@@ -744,6 +747,7 @@ body {
 .cyber-btn.primary {
     border-color: var(--cp-blue);
     color: var(--cp-blue);
+    font-size: 1.4rem;
 }
 
 .btn-text {
@@ -931,181 +935,6 @@ body {
     line-height: 1.6;
 }
 
-/* Tablet Enhancement (768px+) */
-@media (min-width: 768px) {
-    .main-header {
-        padding: 0.75rem 1.5rem;
-        margin-bottom: 0.75rem;
-        gap: 1rem;
-    }
-
-    .header-bottom-row {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .neon-title {
-        font-size: 2.2rem;
-    }
-
-    .subtitle {
-        font-size: 0.95rem;
-        letter-spacing: 0.1rem;
-    }
-
-    .controls {
-        flex: 1;
-        flex-direction: row;
-        justify-content: center;
-        gap: 0.75rem;
-        width: auto;
-    }
-
-    .cyber-btn {
-        width: auto;
-        padding: 0.75rem 1.2rem;
-        font-size: 0.9rem;
-    }
-
-    .cyber-select {
-        width: auto;
-        padding: 0.75rem 1.2rem;
-        font-size: 0.9rem;
-    }
-
-    .stats-panel {
-        flex: 1;
-        justify-content: flex-end;
-        gap: 1rem;
-    }
-
-    .stat-item {
-        padding: 0.5rem 0.8rem;
-        min-width: 70px;
-        flex: 0;
-    }
-
-    .stat-label {
-        font-size: 0.65rem;
-        letter-spacing: 0.08rem;
-    }
-
-    .stat-value {
-        font-size: 1.1rem;
-    }
-
-    .game-container {
-        padding: 1rem;
-    }
-
-    .game-board {
-        gap: 0.5rem;
-        max-width: min(100%, calc(100vh - 150px));
-        max-height: min(100%, calc(100vh - 150px));
-    }
-
-    .modal-content {
-        padding: 2.5rem;
-    }
-
-    .modal-title {
-        font-size: 2.5rem;
-    }
-
-    .modal-message {
-        font-size: 1.8rem;
-    }
-}
-
-/* Desktop Enhancement (1024px+) */
-@media (min-width: 1024px) {
-    .main-header {
-        padding: 0.5rem 2rem;
-        margin-bottom: 1rem;
-    }
-
-    .title-section {
-        justify-content: space-between;
-    }
-
-    .neon-title {
-        font-size: 2.8rem;
-        flex-direction: row;
-        align-items: center;
-        gap: 1.8rem;
-    }
-
-    .subtitle {
-        font-size: 1rem;
-        letter-spacing: 0.12rem;
-    }
-
-    .controls {
-        gap: 1rem;
-        justify-content: flex-start;
-    }
-
-    .cyber-btn {
-        padding: 0.8rem 1.5rem;
-        font-size: 1rem;
-        letter-spacing: 0.15rem;
-        clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
-    }
-
-    .cyber-select {
-        padding: 0.8rem 1.5rem;
-        font-size: 1rem;
-        letter-spacing: 0.15rem;
-        clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
-    }
-
-    .stats-panel {
-        gap: 2rem;
-    }
-
-    .stat-item {
-        padding: 0.5rem 1rem;
-        min-width: 80px;
-        border-radius: 8px;
-    }
-
-    .stat-label {
-        font-size: 0.7rem;
-        letter-spacing: 0.1rem;
-    }
-
-    .stat-value {
-        font-size: 1.2rem;
-    }
-
-    .container {
-        padding: 1rem;
-    }
-
-    .game-container {
-        padding: 2rem;
-    }
-
-    .game-board {
-        gap: 1rem;
-        max-width: min(100%, calc(100vh - 100px));
-        max-height: min(100%, calc(100vh - 100px));
-    }
-
-    .modal-content {
-        padding: 3rem;
-    }
-
-    .modal-title {
-        font-size: 3rem;
-    }
-
-    .modal-message {
-        font-size: 1.3rem;
-    }
-}
-
 /* Settings Row - Language and Audio */
 .settings-row {
     display: flex;
@@ -1120,10 +949,11 @@ body {
     margin: 0;
     flex-shrink: 0;
     min-width: 50px;
+    min-height: 45px;
 }
 
 #language-toggle .lang-text {
-    font-size: 0.75rem;
+    font-size: 1rem;
     font-weight: 700;
     letter-spacing: 0.05rem;
 }
@@ -1136,6 +966,8 @@ body {
 #audio-btn {
     margin: 0;
     flex-shrink: 0;
+    min-width: 50px;
+    min-height: 45px;
 }
 
 

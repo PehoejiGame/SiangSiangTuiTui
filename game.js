@@ -84,7 +84,7 @@ class POJMemoryGame {
                 this.symbolSet = this.pojNasals; // 12 nasals
                 this.totalPairs = 12;
                 this.gridCols = 6;
-                this.gridRows = 4; // 6x4 = 24 cards
+                this.gridRows = 4; // 6x4 = 24 cards (12 pairs + 2 extra slots)
                 break;
             case 'nasalFinals':
                 this.symbolSet = this.pojNasalFinals; // 14 nasal finals
@@ -95,15 +95,15 @@ class POJMemoryGame {
             case 'stopFinals':
                 this.symbolSet = this.pojStopFinals; // 21 stop finals
                 this.totalPairs = 21;
-                this.gridCols = 7;
-                this.gridRows = 6; // 7x6 = 42 cards
+                this.gridCols = 9;
+                this.gridRows = 5; // 9x5 = 45 cards (21 pairs + 2 extra slots)
                 break;
             case 'initials':
             default:
                 this.symbolSet = this.pojInitials; // 17 initials
                 this.totalPairs = 17;
-                this.gridCols = 7;
-                this.gridRows = 5; // 7x5 = 35 cards (17 pairs + 1 extra slot)
+                this.gridCols = 9;
+                this.gridRows = 4; // 9x4 = 36 cards (17 pairs + 2 extra slots)
                 break;
         }
     }
