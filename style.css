@@ -328,7 +328,7 @@ body {
     gap: 0.5rem;
     margin: 0 auto;
     padding: 0.5rem;
-    padding-bottom: 3rem;
+    padding-bottom: 6rem;
 
     /* Use CSS variables set by JS */
     grid-template-columns: repeat(var(--grid-cols, 4), 1fr);
