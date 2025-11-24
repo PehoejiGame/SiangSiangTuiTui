@@ -1013,3 +1013,37 @@ body {
         font-size: 1.2rem;
     }
 }
+
+/* ==========================================================================
+   Components: Footer
+   ========================================================================== */
+.main-footer {
+    width: 768px;
+    padding: 1rem;
+    align-self: center;
+    text-align: center;
+    background: rgba(10, 10, 20, 0.8);
+    border-top: 2px solid rgba(252, 227, 0, 0.5);
+    backdrop-filter: blur(5px);
+    margin-top: auto;
+    flex-shrink: 0;
+}
+
+.main-footer p {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.1rem;
+}
+
+.main-footer a {
+    color: var(--cp-cyan);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    text-shadow: 0 0 5px var(--cp-cyan);
+}
+
+.main-footer a:hover {
+    color: var(--cp-yellow);
+    text-shadow: 0 0 10px var(--cp-yellow);
+}
