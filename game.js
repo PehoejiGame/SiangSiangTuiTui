@@ -49,13 +49,14 @@ class POJMemoryGame {
         this.renderBoard();
         this.startTimer();
         this.attachEventListeners();
+        this.preloadAudio(); // Preload all audio files
     }
 
     setupGame() {
         this.getCardSet();
         this.createCardSet();
         this.shuffleCards();
-        this.preloadAudio(); // Preload current set immediately
+        this.shuffleCards();
     }
 
     getCardSet() {
@@ -553,11 +554,20 @@ class POJMemoryGame {
     }
 
     preloadAudio() {
-        // Preload current set
-        const symbolsToLoad = this.symbolSet.slice(0, this.totalPairs);
-        console.log(`Preloading ${symbolsToLoad.length} audio files...`);
+        // Collect all unique symbols from all sets
+        const allSymbols = new Set([
+            ...this.pojInitials,
+            ...this.pojVowels,
+            ...this.pojDiphthongs,
+            ...this.pojNasals,
+            ...this.pojNasalFinals,
+            ...this.pojStopFinalsH,
+            ...this.pojStopFinalsPTK
+        ]);
 
-        symbolsToLoad.forEach(symbol => {
+        console.log(`Preloading ${allSymbols.size} audio files...`);
+
+        allSymbols.forEach(symbol => {
             if (!this.audioCache[symbol]) {
                 const path = this.getAudioPath(symbol);
                 const audio = new Audio();
